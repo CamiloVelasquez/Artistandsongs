@@ -19,9 +19,7 @@ function App() {
       const url2 = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
 
       const [letra, informacion] = await Promise.all([axios(url), axios(url2)]);
-      console.log(informacion);
 
-      //guardarLetra(resultado.data.lyrics);
       guardarLetra(letra.data.lyrics);
       guardarInfo(informacion.data.artists ? informacion.data.artists[0] : {});
     };
